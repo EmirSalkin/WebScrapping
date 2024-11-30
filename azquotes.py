@@ -16,7 +16,7 @@ def scrape_authors():
         for a in soup.select("ul a.more")
     ]
 
-    for href in tqdm(href_values[:2], desc="Authors scrapping...", ncols=100, colour="red"):
+    for href in tqdm(href_values, desc="Authors scrapping...", ncols=100, colour="red"):
         while href:
             page_response = requests.get(href)
             page_soup = BeautifulSoup(page_response.content, "html.parser")
